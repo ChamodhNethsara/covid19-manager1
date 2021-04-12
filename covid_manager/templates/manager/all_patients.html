@@ -1,0 +1,47 @@
+
+{% extends 'manager/base.html' %}
+<head>
+
+</head>
+<br>
+{% block content %}
+<div class="patient-table" >
+            <H5>ALL PATIENTS SO FAR</H5>
+    
+    <br>
+    <a class="btn btn-primary btn-sm" href="{% url 'manager:add_patient' %}" role="button">Add a Patient </a>
+    <br>
+    <br>
+<table class="table table-striped">
+
+    <thead>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">DOB</th>
+      <th scope="col">TESTED DATE</th>
+      <th scope="col">STATUS</th>
+      <th scope="col">TEST</th>
+      <th scope="col">VIEW</th>
+
+    </thead>
+
+    {% for patient in patients%}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ patient.first_name }}</td>
+            <td>{{ patient.last_name }}</td>
+            <td>{{ patient.DOB }}</td>
+            <td>{{ patient.tested_date }}</td>
+            <td>{{ patient.status }}</td>
+            <td>{{ patient.test }}</td>
+            <td><a class="btn btn-primary btn-sm" href="{{ patient.get_absolute_url }}"role="button">View</a>
+             </td>   
+            </tr>
+
+
+    {% endfor %}
+</table>
+
+</div>
+{% endblock %}

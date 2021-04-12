@@ -1,0 +1,23 @@
+{% extends 'manager/base.html' %} 
+{% load static %}
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4" ><center>Welcome!</center></h1>
+        <p class="lead"><center>This is a simple but fully functional covid 19 patient management system powered by django and Python 3.</center></p>
+        <hr class="my-4">
+        <p><center>full-stack development by Kavindu Chamodh Nethsara</center></p>
+        <center>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'manager:all_patients' %}" role="button">View all patients</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'manager:add_patient' %}" role="button">Add a Patient </a>
+
+        </p>
+        </center>
+    </div>
+    
+    
+
+
+
+{% endblock %}

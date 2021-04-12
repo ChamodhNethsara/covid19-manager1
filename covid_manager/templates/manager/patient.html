@@ -1,0 +1,38 @@
+{% extends 'manager/base.html' %} 
+
+
+{% block content %}
+        <div class="patient">
+            <table class="table table-striped">
+                <tr>
+                    <th>Name</th>
+                    <td>{{ patient.first_name }} {{patient.last_name}} </td>
+                </tr>
+                <tr>
+                    <th>DOB</th>
+                    <td>{{ patient.DOB}}</td>
+                </tr>
+                <tr>
+                    <th>Address </th>
+                    <td>{{ patient.address }} </td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>{{ patient.status }} </td>
+                </tr>
+                <tr>
+                    <th>Test Type</th>
+                    <td>{{ patient.test }}</td>
+                </tr>
+                <tr>
+                    <th>Tested Date</th>
+                    <td>{{ patient.tested_date}}  </td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>{{ patient.tel_no}} </td>
+                </tr>
+
+            </table>
+        </div>
+{% endblock %}
