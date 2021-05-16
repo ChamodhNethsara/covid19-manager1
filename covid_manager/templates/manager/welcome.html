@@ -1,6 +1,8 @@
-{% extends 'manager/base.html' %} 
+{% extends '../base.html' %} 
 {% load static %}
 {% block content %}
+
+    
 
     <div class="jumbotron">
         <h1 class="display-4" ><center>Welcome!</center></h1>
@@ -17,7 +19,26 @@
     </div>
     
     
+    <div class="jumbotron">
+        <h1 class='display-4'>Status Report</h1>
+        <table class='table table-striped'>
+            <tr>
+                <th>Total Patient Count</th>
+                <td>{{ total_patients }}</td>
+            </tr>
+            <tr>
+                <th>Total PCR test Count</th>
+                <td>{{ total_PCRs }}</td>
+            </tr>
+            <tr>
+                <th>Total Deaths</th>
+                <td>{{ total_deaths }}</td>
+            </tr>
+        </table>
+    </div>
 
-
+    <div id="hello">
+        <p>kshxhx</p>
+    </div>
 
 {% endblock %}

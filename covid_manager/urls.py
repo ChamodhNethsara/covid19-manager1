@@ -19,5 +19,6 @@ import manager.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include(manager.urls))
+    path('',include(manager.urls)),
+    path('account/',include('account.urls'))
 ]

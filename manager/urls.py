@@ -14,5 +14,6 @@ urlpatterns = [
 
     path('patient_added/',views.patient_added,name='patient_added'),
 
+    path('search/<str:query>/',views.search_for_patient,name='search'),
 
 ]

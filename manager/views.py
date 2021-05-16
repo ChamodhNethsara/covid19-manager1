@@ -1,16 +1,29 @@
 from django.shortcuts import render, HttpResponseRedirect,redirect
 from .models import Patient
 from django.urls import reverse
+from django.contrib.postgres.search import SearchVector
 
 # Create your views here.
-from .forms import add_patient_form
+from .forms import add_patient_form, SearchForm
 
 def welcome(request):
-    return render(request,'manager/welcome.html')
+    patient_count = Patient.objects.all().count()
+    total_pcrs = Patient.objects.filter(test='PCR').count()
+    total_deaths = Patient.objects.filter(status='DEAD').count()
+
+
+    return render(request,'manager/welcome.html',\
+        {
+        'total_patients' : patient_count,
+        'total_PCRs': total_pcrs,
+        'total_deaths': total_deaths,
+    })
 
 def all_patients(request):
     patients = Patient.objects.all()
-    return render(request,'manager/all_patients.html',context={'patients':patients})
+    
+    return render(request,'manager/all_patients.html',context={'patients':patients,\
+        'search': SearchForm()})
 
 def view_patient(request,id):
     patient = Patient.objects.get(id=id)
@@ -41,7 +54,12 @@ def patient_added(request):
 
     patient.save()
 
+def search_for_patient():
+    pass
+
 
 
 
     return redirect(reverse('manager:all_patients'))
+
+

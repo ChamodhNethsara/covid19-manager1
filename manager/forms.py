@@ -27,3 +27,7 @@ class add_patient_form(forms.Form):
     status = forms.CharField(max_length=20,
         widget=forms.Select(choices=Patient.STATUSES,attrs={'placeholder': 'Status','class': 'form-control'}))
 
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
+    
